@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Storage Management System - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Medical Storage Management System</h1>
+            <p>Efficient Medicine Inventory Management</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">📊 Dashboard</a></li>
+                <li><a href="add_medicine.html">➕ Add Medicine</a></li>
+                <li><a href="view_medicines.html">📋 View Medicines</a></li>
+                <li><a href="search_medicine.html">🔍 Search Medicine</a></li>
+            </ul>
+        </nav>
+
+        <div class="card">
+            <h2>Dashboard Overview</h2>
+            <div id="alert" class="alert"></div>
+            
+            <div class="action-buttons">
+                <a href="add_medicine.html" class="btn btn-primary">
+                    <span>➕</span> Add New Medicine
+                </a>
+                <a href="view_medicines.html" class="btn btn-success">
+                    <span>📋</span> View All Medicines
+                </a>
+                <a href="search_medicine.html" class="btn btn-secondary">
+                    <span>🔍</span> Search Medicines
+                </a>
+            </div>
+
+            <div id="stats" style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                <div class="stat-card skeleton" style="height: 120px;"></div>
+                <div class="stat-card skeleton" style="height: 120px;"></div>
+                <div class="stat-card skeleton" style="height: 120px;"></div>
+                <div class="stat-card skeleton" style="height: 120px;"></div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 20px; font-size: 1.5em; font-weight: 700;">
+                    ⚠️ Expiring Soon (Next 30 Days)
+                </h3>
+                <div id="expiring-medicines">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Loading expiring medicines...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Load dashboard statistics with animations
+        async function loadDashboard() {
+            try {
+                const medicines = await fetchMedicines();
+                const expiringResponse = await fetch(`${API_BASE_URL}/medicines/expiring?days=30`);
+                const expiringMedicines = expiringResponse.ok ? await expiringResponse.json() : [];
+
+                // Calculate statistics
+                const totalMedicines = medicines.length;
+                const totalQuantity = medicines.reduce((sum, m) => sum + parseInt(m.quantity || 0), 0);
+                const totalValue = medicines.reduce((sum, m) => sum + (parseFloat(m.price || 0) * parseInt(m.quantity || 0)), 0);
+                const lowStock = medicines.filter(m => parseInt(m.quantity || 0) < 50).length;
+
+                // Display stats with animation
+                const statsHTML = `
+                    <div class="stat-card" style="animation-delay: 0.1s;">
+                        <h3 style="color: var(--primary-color);">${totalMedicines}</h3>
+                        <p>Total Medicines</p>
+                    </div>
+                    <div class="stat-card" style="animation-delay: 0.2s;">
+                        <h3 style="color: var(--success-color);">${totalQuantity.toLocaleString()}</h3>
+                        <p>Total Quantity</p>
+                    </div>
+                    <div class="stat-card" style="animation-delay: 0.3s;">
+                        <h3 style="color: var(--warning-color);">${formatCurrency(totalValue)}</h3>
+                        <p>Inventory Value</p>
+                    </div>
+                    <div class="stat-card" style="animation-delay: 0.4s;">
+                        <h3 style="color: var(--danger-color);">${lowStock}</h3>
+                        <p>Low Stock Items</p>
+                    </div>
+                `;
+                
+                document.getElementById('stats').innerHTML = statsHTML;
+
+                // Display expiring medicines
+                const expiringDiv = document.getElementById('expiring-medicines');
+                if (expiringMedicines.length > 0) {
+                    expiringDiv.innerHTML = '<div class="table-container">' + 
+                        '<table><thead><tr><th>ID</th><th>Name</th><th>Company</th><th>Exp Date</th><th>Days Left</th><th>Quantity</th><th>Actions</th></tr></thead><tbody>';
+                    
+                    expiringMedicines.forEach((medicine, index) => {
+                        const daysUntilExpiry = medicine.days_until_expiry || 0;
+                        const expiryClass = daysUntilExpiry < 0 ? 'expired' : 'expiring-soon';
+                        
+                        expiringDiv.querySelector('tbody').innerHTML += `
+                            <tr style="animation-delay: ${index * 0.1}s;">
+                                <td>${medicine.medicine_id}</td>
+                                <td><strong>${escapeHtml(medicine.name)}</strong></td>
+                                <td>${escapeHtml(medicine.company)}</td>
+                                <td class="${expiryClass}">${formatDate(medicine.exp_date)}</td>
+                                <td class="${expiryClass}">${daysUntilExpiry} days</td>
+                                <td>${medicine.quantity}</td>
+                                <td>
+                                    <button class="btn btn-warning" onclick="editMedicine(${medicine.medicine_id})" style="padding: 6px 12px; font-size: 12px;">Edit</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    
+                    expiringDiv.innerHTML += '</tbody></table></div>';
+                } else {
+                    expiringDiv.innerHTML = '<div class="empty-state"><p style="padding: 30px; color: var(--success-color); font-size: 1.1em; font-weight: 600;">✅ No medicines expiring in the next 30 days! All good!</p></div>';
+                }
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+                showAlert('Error loading dashboard: ' + error.message, 'error');
+            }
+        }
+
+        loadDashboard();
+    </script>
+</body>
+</html>

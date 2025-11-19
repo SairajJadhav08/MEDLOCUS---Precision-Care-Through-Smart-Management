@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Medicines - Medical Storage Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Medical Storage Management System</h1>
+            <p>Efficient Medicine Inventory Management</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">📊 Dashboard</a></li>
+                <li><a href="add_medicine.html">➕ Add Medicine</a></li>
+                <li><a href="view_medicines.html" class="active">📋 View Medicines</a></li>
+                <li><a href="search_medicine.html">🔍 Search Medicine</a></li>
+            </ul>
+        </nav>
+
+        <div class="card">
+            <h2>All Medicines</h2>
+            <div id="alert" class="alert"></div>
+            
+            <div class="action-buttons" style="margin-bottom: 25px;">
+                <a href="add_medicine.html" class="btn btn-primary">
+                    <span>➕</span> Add New Medicine
+                </a>
+                <button onclick="loadMedicines()" class="btn btn-success" id="refreshBtn">
+                    <span>🔄</span> Refresh
+                </button>
+            </div>
+
+            <!-- Expired Medicines Section -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="color: var(--danger-color); margin-bottom: 20px; font-size: 1.5em; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                    <span>⚠️</span> Expired Medicines 
+                    <span id="expired-count" class="badge badge-danger" style="font-size: 0.6em; padding: 6px 12px;">0</span>
+                </h3>
+                <div id="expired-medicines-table">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Loading expired medicines...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Good Medicines Section -->
+            <div style="margin-top: 40px;">
+                <h3 style="color: var(--success-color); margin-bottom: 20px; font-size: 1.5em; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                    <span>✅</span> Good Medicines (Valid & Expiring Soon)
+                    <span id="good-count" class="badge badge-success" style="font-size: 0.6em; padding: 6px 12px;">0</span>
+                </h3>
+                <div id="good-medicines-table">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Loading good medicines...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        async function loadMedicines() {
+            const refreshBtn = document.getElementById('refreshBtn');
+            const originalHTML = refreshBtn.innerHTML;
+            
+            // Show loading state on button
+            refreshBtn.innerHTML = '<span>⏳</span> Loading...';
+            refreshBtn.disabled = true;
+            
+            try {
+                // Show loading for both tables
+                showLoading('expired-medicines-table');
+                showLoading('good-medicines-table');
+                
+                const medicines = await fetchMedicines();
+                
+                // Categorize medicines
+                const expiredMedicines = [];
+                const goodMedicines = [];
+                
+                medicines.forEach(medicine => {
+                    const expiryStatus = checkExpiryStatus(medicine.exp_date);
+                    if (expiryStatus.status === 'expired') {
+                        expiredMedicines.push(medicine);
+                    } else {
+                        goodMedicines.push(medicine);
+                    }
+                });
+                
+                // Render both tables
+                renderMedicineTable(expiredMedicines, 'expired-medicines-table', true);
+                renderMedicineTable(goodMedicines, 'good-medicines-table', false);
+                
+                // Update counts
+                document.getElementById('expired-count').textContent = expiredMedicines.length;
+                document.getElementById('good-count').textContent = goodMedicines.length;
+                
+                if (medicines.length > 0) {
+                    showAlert(`Loaded ${medicines.length} medicine(s): ${expiredMedicines.length} expired, ${goodMedicines.length} good`, 'success');
+                }
+            } catch (error) {
+                console.error('Error loading medicines:', error);
+                document.getElementById('expired-medicines-table').innerHTML = 
+                    '<div class="empty-state"><p>❌ Error loading medicines. Please try again.</p></div>';
+                document.getElementById('good-medicines-table').innerHTML = 
+                    '<div class="empty-state"><p>❌ Error loading medicines. Please try again.</p></div>';
+            } finally {
+                refreshBtn.innerHTML = originalHTML;
+                refreshBtn.disabled = false;
+            }
+        }
+
+        // Load medicines on page load
+        loadMedicines();
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Medicine - Medical Storage Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Medical Storage Management System</h1>
+            <p>Efficient Medicine Inventory Management</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">📊 Dashboard</a></li>
+                <li><a href="add_medicine.html">➕ Add Medicine</a></li>
+                <li><a href="view_medicines.html">📋 View Medicines</a></li>
+                <li><a href="search_medicine.html" class="active">🔍 Search Medicine</a></li>
+            </ul>
+        </nav>
+
+        <div class="card">
+            <h2>Search Medicines</h2>
+            <div id="alert" class="alert"></div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by medicine name, company, or supplier..." onkeyup="handleSearch()">
+                <button onclick="performSearch()" class="btn btn-primary" id="searchBtn">
+                    <span>🔍</span> Search
+                </button>
+                <button onclick="clearSearch()" class="btn btn-secondary">
+                    <span>🗑️</span> Clear
+                </button>
+            </div>
+
+            <div id="search-results">
+                <div class="empty-state">
+                    <p>🔍 Enter a search term above to find medicines</p>
+                    <p style="font-size: 0.9em; margin-top: 10px; color: #94a3b8;">You can search by medicine name, company, or supplier name</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        let searchTimeout;
+        
+        function handleSearch() {
+            const input = document.getElementById('searchInput');
+            
+            // Clear previous timeout
+            clearTimeout(searchTimeout);
+            
+            // Wait for user to stop typing (500ms delay)
+            searchTimeout = setTimeout(() => {
+                if (input.value.trim().length >= 2) {
+                    performSearch();
+                } else if (input.value.trim().length === 0) {
+                    clearSearch();
+                }
+            }, 500);
+        }
+
+        async function performSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            const resultsDiv = document.getElementById('search-results');
+            const searchBtn = document.getElementById('searchBtn');
+
+            if (!query) {
+                resultsDiv.innerHTML = `
+                    <div class="empty-state">
+                        <p>🔍 Enter a search term to find medicines</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const originalBtnHTML = searchBtn.innerHTML;
+            searchBtn.innerHTML = '<span>⏳</span> Searching...';
+            searchBtn.disabled = true;
+
+            try {
+                showLoading('search-results');
+                const medicines = await searchMedicines(query);
+                
+                if (medicines.length === 0) {
+                    resultsDiv.innerHTML = `
+                        <div class="empty-state">
+                            <p>📭 No medicines found for "${escapeHtml(query)}"</p>
+                            <p style="font-size: 0.9em; margin-top: 10px; color: #94a3b8;">Try a different search term</p>
+                        </div>
+                    `;
+                } else {
+                    renderMedicineTable(medicines, 'search-results');
+                    showAlert(`Found ${medicines.length} medicine(s)`, 'success');
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <div class="empty-state">
+                        <p>❌ Error searching medicines. Please try again.</p>
+                    </div>
+                `;
+            } finally {
+                searchBtn.innerHTML = originalBtnHTML;
+                searchBtn.disabled = false;
+            }
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('search-results').innerHTML = `
+                <div class="empty-state">
+                    <p>🔍 Enter a search term above to find medicines</p>
+                    <p style="font-size: 0.9em; margin-top: 10px; color: #94a3b8;">You can search by medicine name, company, or supplier name</p>
+                </div>
+            `;
+        }
+
+        // Allow Enter key to trigger search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+            }
+        });
+    </script>
+</body>
+</html>

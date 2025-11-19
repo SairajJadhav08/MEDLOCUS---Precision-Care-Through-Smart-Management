@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Storage Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏥 Medical Storage Management System</h1>
+            <nav class="navbar">
+                <button class="nav-btn active" onclick="showSection('view')">View Medicines</button>
+                <button class="nav-btn" onclick="showSection('add')">Add Medicine</button>
+                <button class="nav-btn" onclick="showSection('search')">Search Medicine</button>
+                <button class="nav-btn" onclick="showSection('expiring')">Expiry Alerts</button>
+            </nav>
+        </header>
+
+        <!-- View Medicines Section -->
+        <section id="view-section" class="section active">
+            <h2>All Medicines</h2>
+            <div class="controls">
+                <button onclick="refreshMedicines()" class="btn btn-primary">Refresh</button>
+                <button onclick="showSection('add')" class="btn btn-success">Add New Medicine</button>
+            </div>
+            <div id="medicines-table-container">
+                <table id="medicines-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Mfg Date</th>
+                            <th>Exp Date</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Supplier</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="medicines-tbody">
+                        <tr>
+                            <td colspan="9" class="loading">Loading medicines...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Add Medicine Section -->
+        <section id="add-section" class="section">
+            <h2>Add New Medicine</h2>
+            <form id="add-medicine-form" class="medicine-form">
+                <div class="form-group">
+                    <label for="add-name">Medicine Name *</label>
+                    <input type="text" id="add-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-company">Company *</label>
+                    <input type="text" id="add-company" name="company" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="add-mfg-date">Manufacture Date *</label>
+                        <input type="date" id="add-mfg-date" name="mfg_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-exp-date">Expiry Date *</label>
+                        <input type="date" id="add-exp-date" name="exp_date" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="add-quantity">Quantity *</label>
+                        <input type="number" id="add-quantity" name="quantity" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-price">Price (₹) *</label>
+                        <input type="number" id="add-price" name="price" step="0.01" min="0" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="add-supplier">Supplier *</label>
+                    <select id="add-supplier" name="supplier_id" required>
+                        <option value="">Loading suppliers...</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">Add Medicine</button>
+                    <button type="reset" class="btn btn-secondary">Clear</button>
+                </div>
+            </form>
+            <div id="add-message" class="message"></div>
+        </section>
+
+        <!-- Update Medicine Section (Hidden, shown via modal) -->
+        <section id="update-section" class="section">
+            <h2>Update Medicine</h2>
+            <form id="update-medicine-form" class="medicine-form">
+                <input type="hidden" id="update-id" name="medicine_id">
+                <div class="form-group">
+                    <label for="update-name">Medicine Name *</label>
+                    <input type="text" id="update-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="update-company">Company *</label>
+                    <input type="text" id="update-company" name="company" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="update-mfg-date">Manufacture Date *</label>
+                        <input type="date" id="update-mfg-date" name="mfg_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-exp-date">Expiry Date *</label>
+                        <input type="date" id="update-exp-date" name="exp_date" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="update-quantity">Quantity *</label>
+                        <input type="number" id="update-quantity" name="quantity" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-price">Price (₹) *</label>
+                        <input type="number" id="update-price" name="price" step="0.01" min="0" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="update-supplier">Supplier *</label>
+                    <select id="update-supplier" name="supplier_id" required>
+                        <option value="">Loading suppliers...</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Update Medicine</button>
+                    <button type="button" onclick="showSection('view')" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+            <div id="update-message" class="message"></div>
+        </section>
+
+        <!-- Search Medicine Section -->
+        <section id="search-section" class="section">
+            <h2>Search Medicines</h2>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search by medicine name, company, or supplier..." class="search-input">
+                <button onclick="searchMedicines()" class="btn btn-primary">Search</button>
+            </div>
+            <div id="search-results-container">
+                <table id="search-results-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Mfg Date</th>
+                            <th>Exp Date</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Supplier</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="search-results-tbody">
+                        <tr>
+                            <td colspan="9" class="no-data">Enter search term and click Search</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Expiring Medicines Section -->
+        <section id="expiring-section" class="section">
+            <h2>Expiry Alerts</h2>
+            <div class="controls">
+                <label for="expiry-days">Show medicines expiring within:</label>
+                <select id="expiry-days" onchange="loadExpiringMedicines()">
+                    <option value="30">30 days</option>
+                    <option value="60">60 days</option>
+                    <option value="90">90 days</option>
+                </select>
+            </div>
+            <div id="expiring-table-container">
+                <table id="expiring-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Exp Date</th>
+                            <th>Days Until Expiry</th>
+                            <th>Quantity</th>
+                            <th>Supplier</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expiring-tbody">
+                        <tr>
+                            <td colspan="8" class="loading">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <h3>Confirm Delete</h3>
+            <p>Are you sure you want to delete this medicine?</p>
+            <div class="modal-actions">
+                <button onclick="confirmDelete()" class="btn btn-danger">Delete</button>
+                <button onclick="closeDeleteModal()" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+

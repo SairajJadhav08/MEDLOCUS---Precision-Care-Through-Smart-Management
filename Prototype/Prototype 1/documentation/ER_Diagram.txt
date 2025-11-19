@@ -1,0 +1,121 @@
+================================================================================
+                    ENTITY RELATIONSHIP (ER) DIAGRAM
+           Medical Storage Management System - Database Design
+================================================================================
+
+ENTITIES:
+---------
+
+1. SUPPLIERS
+   Attributes:
+   - supplier_id (Primary Key, Auto-increment, INT)
+   - supplier_name (VARCHAR(100), NOT NULL)
+   - contact_no (VARCHAR(20), NOT NULL)
+   - created_at (TIMESTAMP)
+   - updated_at (TIMESTAMP)
+
+2. MEDICINES
+   Attributes:
+   - medicine_id (Primary Key, Auto-increment, INT)
+   - name (VARCHAR(100), NOT NULL)
+   - company (VARCHAR(100), NOT NULL)
+   - mfg_date (DATE, NOT NULL)
+   - exp_date (DATE, NOT NULL)
+   - quantity (INT, NOT NULL, CHECK >= 0)
+   - price (DECIMAL(10,2), NOT NULL, CHECK >= 0)
+   - supplier_id (Foreign Key, INT, NOT NULL)
+   - created_at (TIMESTAMP)
+   - updated_at (TIMESTAMP)
+
+RELATIONSHIPS:
+--------------
+
+SUPPLIERS (1) ----< (M) MEDICINES
+
+Relationship Type: One-to-Many (1:N)
+Cardinality: One supplier can supply many medicines
+              One medicine belongs to exactly one supplier
+
+Relationship Details:
+- supplier_id in MEDICINES table references supplier_id in SUPPLIERS table
+- Foreign Key Constraint: ON DELETE RESTRICT
+  (Prevents deletion of supplier if medicines exist)
+
+CONSTRAINTS:
+------------
+
+1. Primary Keys:
+   - suppliers.supplier_id (PK)
+   - medicines.medicine_id (PK)
+
+2. Foreign Keys:
+   - medicines.supplier_id -> suppliers.supplier_id (FK)
+
+3. Check Constraints:
+   - medicines.quantity >= 0
+   - medicines.price >= 0
+
+4. Indexes:
+   - suppliers.supplier_name (for faster lookups)
+   - medicines.name (for search operations)
+   - medicines.company (for search operations)
+   - medicines.exp_date (for expiry tracking)
+   - medicines.supplier_id (for join operations)
+
+NORMALIZATION STATUS:
+---------------------
+Database is normalized to 3NF (Third Normal Form):
+
+- 1NF: All attributes contain atomic values
+- 2NF: All non-key attributes fully depend on primary key
+- 3NF: No transitive dependencies (all attributes depend only on primary key)
+
+Normalization Benefits:
+- Eliminates data redundancy
+- Prevents update anomalies
+- Ensures data integrity
+- Optimizes storage
+
+================================================================================
+                           GRAPHICAL REPRESENTATION
+================================================================================
+
+                ┌─────────────────────┐
+                │     SUPPLIERS       │
+                ├─────────────────────┤
+                │ supplier_id (PK)    │
+                │ supplier_name       │
+                │ contact_no          │
+                │ created_at          │
+                │ updated_at          │
+                └─────────────────────┘
+                         │
+                         │ 1
+                         │
+                         │ supplies
+                         │
+                         │ M
+                         ▼
+                ┌─────────────────────┐
+                │     MEDICINES       │
+                ├─────────────────────┤
+                │ medicine_id (PK)    │
+                │ name                │
+                │ company             │
+                │ mfg_date            │
+                │ exp_date            │
+                │ quantity            │
+                │ price               │
+                │ supplier_id (FK) ───┘
+                │ created_at          │
+                │ updated_at          │
+                └─────────────────────┘
+
+Legend:
+  PK = Primary Key
+  FK = Foreign Key
+  1  = One
+  M  = Many
+
+================================================================================
+

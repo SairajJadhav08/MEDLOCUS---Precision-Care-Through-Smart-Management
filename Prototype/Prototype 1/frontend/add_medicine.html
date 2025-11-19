@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Medicine - Medical Storage Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Medical Storage Management System</h1>
+            <p>Efficient Medicine Inventory Management</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">📊 Dashboard</a></li>
+                <li><a href="add_medicine.html" class="active">➕ Add Medicine</a></li>
+                <li><a href="view_medicines.html">📋 View Medicines</a></li>
+                <li><a href="search_medicine.html">🔍 Search Medicine</a></li>
+            </ul>
+        </nav>
+
+        <div class="card">
+            <h2>Add New Medicine</h2>
+            <div id="alert" class="alert"></div>
+
+            <form id="medicineForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Medicine Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="e.g., Paracetamol 500mg">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company *</label>
+                        <input type="text" id="company" name="company" required placeholder="e.g., PharmaCorp">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="mfg_date">Manufacture Date *</label>
+                        <input type="date" id="mfg_date" name="mfg_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exp_date">Expiry Date *</label>
+                        <input type="date" id="exp_date" name="exp_date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quantity">Quantity *</label>
+                        <input type="number" id="quantity" name="quantity" min="0" required placeholder="e.g., 100">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price (USD) *</label>
+                        <input type="number" id="price" name="price" min="0" step="0.01" required placeholder="e.g., 25.50">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="supplier_id">Supplier *</label>
+                    <select id="supplier_id" name="supplier_id" required>
+                        <option value="">Loading suppliers...</option>
+                    </select>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <span>✅</span> Add Medicine
+                    </button>
+                    <a href="view_medicines.html" class="btn btn-secondary">
+                        <span>↩️</span> Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        const supplierSelect = document.getElementById('supplier_id');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        // Load suppliers on page load
+        populateSupplierDropdown(supplierSelect);
+
+        // Set today's date as default for manufacture date
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('mfg_date').max = today;
+        document.getElementById('mfg_date').valueAsDate = new Date();
+        
+        // Set minimum expiry date
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById('exp_date').min = tomorrow.toISOString().split('T')[0];
+
+        // Handle form submission
+        document.getElementById('medicineForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!validateMedicineForm(e.target)) {
+                return;
+            }
+
+            const originalBtnHTML = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span>⏳</span> Adding...';
+            submitBtn.disabled = true;
+
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                company: document.getElementById('company').value.trim(),
+                mfg_date: document.getElementById('mfg_date').value,
+                exp_date: document.getElementById('exp_date').value,
+                quantity: parseInt(document.getElementById('quantity').value),
+                price: parseFloat(document.getElementById('price').value),
+                supplier_id: parseInt(document.getElementById('supplier_id').value)
+            };
+
+            try {
+                await addMedicine(formData);
+                showAlert('Medicine added successfully!', 'success');
+                e.target.reset();
+                setTimeout(() => {
+                    window.location.href = 'view_medicines.html';
+                }, 1500);
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+                submitBtn.innerHTML = originalBtnHTML;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
