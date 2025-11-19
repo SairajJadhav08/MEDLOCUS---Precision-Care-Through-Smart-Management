@@ -1,5 +1,7 @@
 # 🏥 Medical Storage Management System (MEDLOCUS)
 
+<img width="1024" height="1024" alt="Logo" src="https://github.com/user-attachments/assets/34149f0a-5bfd-4acb-8fc5-4ebdbfcef1b2" />
+
 A comprehensive, full-stack web application designed to help pharmacies efficiently manage their medicine inventory with complete CRUD operations, advanced search functionality, expiry date tracking, and an intuitive user interface.
 
 ---
