@@ -1,11 +1,13 @@
-<div align="center">
+<div style="background-color: #1a1a1a; min-height: 100vh; padding: 20px; position: relative; z-index: 1;">
+
+<div align="center" style="position: relative; z-index: 10;">
 
 # 🏥 MEDLOCUS
 ## Precision Care Through Smart Management
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 20px 0;">
   <img src="Logo.svg" alt="MEDLOCUS Logo" width="120" height="120" style="animation: pulse 2s ease-in-out infinite;">
-  <h1 style="margin: 0; font-size: 2.5em; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fadeIn 1s ease-in;">MEDLOCUS</h1>
+  <h1 style="margin: 0; font-size: 2.5em; color: #ffffff !important; text-shadow: 0 0 20px rgba(102, 126, 234, 0.5); animation: fadeIn 1s ease-in; position: relative; z-index: 10;">MEDLOCUS</h1>
 </div>
 
 <p align="center">
@@ -17,16 +19,16 @@
   <img src="https://img.shields.io/badge/Innovation-First-brightgreen.svg" alt="Innovation">
 </p>
 
-<p align="center" style="font-size: 1.2em; margin: 20px 0;">
-  <strong>Revolutionizing Healthcare Through Intelligent Automation</strong> 🚀
+<p align="center" style="font-size: 1.2em; margin: 20px 0; color: #ffffff !important; position: relative; z-index: 10;">
+  <strong style="color: #ffffff !important;">Revolutionizing Healthcare Through Intelligent Automation</strong> 🚀
 </p>
 
-<div align="center" style="margin: 30px 0;">
-  <a href="#-project-overview" style="margin: 0 10px; text-decoration: none;">📖 Documentation</a> •
-  <a href="#-features" style="margin: 0 10px; text-decoration: none;">🎯 Features</a> •
-  <a href="#-architecture" style="margin: 0 10px; text-decoration: none;">🏗️ Architecture</a> •
-  <a href="#-tech-stack" style="margin: 0 10px; text-decoration: none;">🛠️ Tech Stack</a> •
-  <a href="#-impact" style="margin: 0 10px; text-decoration: none;">📊 Impact</a>
+<div align="center" style="margin: 30px 0; position: relative; z-index: 10;">
+  <a href="#-project-overview" style="margin: 0 10px; text-decoration: none; color: #4A90E2 !important; position: relative; z-index: 10;">📖 Documentation</a> •
+  <a href="#-features" style="margin: 0 10px; text-decoration: none; color: #4A90E2 !important; position: relative; z-index: 10;">🎯 Features</a> •
+  <a href="#-architecture" style="margin: 0 10px; text-decoration: none; color: #4A90E2 !important; position: relative; z-index: 10;">🏗️ Architecture</a> •
+  <a href="#-tech-stack" style="margin: 0 10px; text-decoration: none; color: #4A90E2 !important; position: relative; z-index: 10;">🛠️ Tech Stack</a> •
+  <a href="#-impact" style="margin: 0 10px; text-decoration: none; color: #4A90E2 !important; position: relative; z-index: 10;">📊 Impact</a>
 </div>
 
 </div>
@@ -34,6 +36,33 @@
 ---
 
 <style>
+body {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+* {
+  color: #ffffff !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+  position: relative;
+  z-index: 10;
+}
+p, li, td, th, span, div, a {
+  color: #ffffff !important;
+  position: relative;
+  z-index: 10;
+}
+code {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+  border: 1px solid #444;
+}
+pre {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+  border: 1px solid #444;
+}
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
@@ -51,48 +80,122 @@
   flex-wrap: wrap;
   gap: 10px;
   margin: 20px 0;
+  position: relative;
+  z-index: 10;
 }
 .interactive-card {
-  border: 2px solid #e0e0e0;
+  border: 2px solid #444;
   border-radius: 10px;
   padding: 20px;
   margin: 15px 0;
   transition: all 0.3s ease;
   cursor: pointer;
+  background-color: #2d2d2d;
+  color: #ffffff !important;
+  position: relative;
+  z-index: 10;
 }
 .interactive-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
   border-color: #667eea;
 }
+.interactive-card * {
+  color: #ffffff !important;
+  position: relative;
+  z-index: 11;
+}
 .collapsible {
-  background-color: #f1f1f1;
-  color: #444;
+  background-color: #2d2d2d;
+  color: #ffffff !important;
   cursor: pointer;
   padding: 18px;
   width: 100%;
-  border: none;
+  border: 1px solid #444;
   text-align: left;
   outline: none;
   font-size: 15px;
   border-radius: 5px;
   margin: 5px 0;
   transition: background-color 0.3s;
+  position: relative;
+  z-index: 10;
 }
 .collapsible:hover {
-  background-color: #ddd;
+  background-color: #3d3d3d;
+  color: #ffffff !important;
 }
 .collapsible.active {
   background-color: #667eea;
-  color: white;
+  color: #ffffff !important;
 }
 .content {
   padding: 0 18px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-  background-color: #f9f9f9;
+  background-color: #2d2d2d;
+  color: #ffffff !important;
   border-radius: 0 0 5px 5px;
+  position: relative;
+  z-index: 10;
+}
+.content * {
+  color: #ffffff !important;
+}
+table {
+  background-color: #2d2d2d;
+  color: #ffffff !important;
+}
+table th, table td {
+  color: #ffffff !important;
+  border: 1px solid #444;
+}
+a {
+  color: #4A90E2 !important;
+  position: relative;
+  z-index: 10;
+}
+a:hover {
+  color: #6BA3E8 !important;
+}
+blockquote {
+  border-left: 4px solid #667eea;
+  background-color: #2d2d2d;
+  color: #ffffff !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+  position: relative;
+  z-index: 10;
+}
+ul, ol {
+  color: #ffffff !important;
+}
+li {
+  color: #ffffff !important;
+  position: relative;
+  z-index: 10;
+}
+strong, b {
+  color: #ffffff !important;
+  position: relative;
+  z-index: 10;
+}
+em, i {
+  color: #ffffff !important;
+}
+hr {
+  border-color: #444;
+  background-color: #444;
+}
+details {
+  color: #ffffff !important;
+}
+summary {
+  color: #ffffff !important;
+  position: relative;
+  z-index: 10;
 }
 </style>
 
@@ -122,7 +225,7 @@
 
 ## 🎯 Project Overview
 
-<div class="interactive-card" style="animation: fadeIn 1s ease-in;">
+<div class="interactive-card" style="animation: fadeIn 1s ease-in; color: #ffffff !important;">
 
 ### What is MEDLOCUS?
 
@@ -933,6 +1036,8 @@ For issues, questions, or contributions:
 **Revolutionizing Healthcare Through Intelligent Automation** 🚀
 
 [⬆ Back to Top](#-medlocus)
+
+</div>
 
 </div>
 
