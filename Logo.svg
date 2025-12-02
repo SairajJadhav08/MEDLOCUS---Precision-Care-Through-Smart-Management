@@ -1,0 +1,77 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E55A2B;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- White background -->
+  <rect width="512" height="512" fill="#FFFFFF"/>
+  
+  <!-- Main "M" shape formed by interconnected shapes -->
+  <!-- Left vertical bar -->
+  <path d="M 150 120 L 150 280 L 180 280 L 180 200 L 200 200 L 200 280 L 230 280 L 230 120 L 200 120 L 200 180 L 180 180 L 180 120 Z" 
+        fill="url(#blueGradient)" opacity="0.9"/>
+  
+  <!-- Right vertical bar -->
+  <path d="M 280 120 L 280 180 L 300 180 L 300 120 L 330 120 L 330 280 L 300 280 L 300 200 L 280 200 L 280 280 L 250 280 L 250 120 Z" 
+        fill="url(#orangeGradient)" opacity="0.9"/>
+  
+  <!-- Center connecting element (cross/plus medical symbol) -->
+  <circle cx="256" cy="200" r="25" fill="url(#blueGradient)" opacity="0.8"/>
+  <rect x="246" y="160" width="20" height="80" fill="url(#orangeGradient)" opacity="0.8"/>
+  <rect x="216" y="190" width="80" height="20" fill="url(#orangeGradient)" opacity="0.8"/>
+  
+  <!-- Decorative dots and lines (blue) -->
+  <circle cx="120" cy="150" r="8" fill="#4A90E2" opacity="0.7"/>
+  <circle cx="100" cy="200" r="6" fill="#4A90E2" opacity="0.6"/>
+  <circle cx="130" cy="250" r="7" fill="#4A90E2" opacity="0.7"/>
+  <line x1="120" y1="150" x2="150" y2="150" stroke="#4A90E2" stroke-width="2" opacity="0.5"/>
+  <line x1="100" y1="200" x2="150" y2="200" stroke="#4A90E2" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Decorative dots and lines (orange) -->
+  <circle cx="392" cy="150" r="8" fill="#FF6B35" opacity="0.7"/>
+  <circle cx="412" cy="200" r="6" fill="#FF6B35" opacity="0.6"/>
+  <circle cx="382" cy="250" r="7" fill="#FF6B35" opacity="0.7"/>
+  <line x1="362" y1="150" x2="392" y2="150" stroke="#FF6B35" stroke-width="2" opacity="0.5"/>
+  <line x1="362" y1="200" x2="412" y2="200" stroke="#FF6B35" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Circular arrow (indicating progress/automation) -->
+  <path d="M 256 320 A 40 40 0 1 1 276 340" 
+        stroke="#4A90E2" 
+        stroke-width="4" 
+        fill="none" 
+        opacity="0.8"
+        marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4A90E2" />
+    </marker>
+  </defs>
+  
+  <!-- Additional connecting lines between elements -->
+  <line x1="230" y1="200" x2="250" y2="200" stroke="#4A90E2" stroke-width="2" opacity="0.4"/>
+  <line x1="230" y1="200" x2="250" y2="200" stroke="#FF6B35" stroke-width="2" opacity="0.4"/>
+  
+  <!-- Small decorative elements -->
+  <circle cx="180" cy="140" r="4" fill="#FF6B35" opacity="0.6"/>
+  <circle cx="300" cy="140" r="4" fill="#4A90E2" opacity="0.6"/>
+  <circle cx="200" cy="260" r="5" fill="#FF6B35" opacity="0.5"/>
+  <circle cx="280" cy="260" r="5" fill="#4A90E2" opacity="0.5"/>
+  
+  <!-- Bottom text area background (subtle) -->
+  <rect x="100" y="380" width="312" height="60" fill="#F5F5F5" opacity="0.3" rx="10"/>
+</svg>
+
