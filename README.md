@@ -421,6 +421,8 @@ flowchart LR
 
 ## 🛠️ Technology Stack
 
+<div style="color: #ffffff !important; position: relative; z-index: 10;">
+
 ### Technology Stack Diagram
 
 ```mermaid
@@ -449,25 +451,44 @@ mindmap
 
 ### Frontend Technologies
 
-<div class="badge-container">
+<div class="badge-container" style="color: #ffffff !important; position: relative; z-index: 10;">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <div style="color: #ffffff !important; padding: 10px; background-color: #2d2d2d; border-radius: 5px; margin: 5px;">
+    <strong style="color: #ffffff !important;">HTML5</strong> - Semantic markup for structure<br>
+    <strong style="color: #ffffff !important;">CSS3</strong> - Modern styling with responsive design<br>
+    <strong style="color: #ffffff !important;">JavaScript ES6+</strong> - Dynamic functionality and API communication
+  </div>
 </div>
 
 ### Backend Technologies
 
-<div class="badge-container">
+<div class="badge-container" style="color: #ffffff !important; position: relative; z-index: 10;">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
   <img src="https://img.shields.io/badge/REST_API-FF6B6B?style=for-the-badge&logo=rest&logoColor=white" alt="REST API">
+  <div style="color: #ffffff !important; padding: 10px; background-color: #2d2d2d; border-radius: 5px; margin: 5px;">
+    <strong style="color: #ffffff !important;">Python 3.8+</strong> - Programming language<br>
+    <strong style="color: #ffffff !important;">Flask 3.0.0</strong> - Lightweight web framework for REST API<br>
+    <strong style="color: #ffffff !important;">Flask-CORS</strong> - Cross-Origin Resource Sharing support<br>
+    <strong style="color: #ffffff !important;">RESTful API</strong> - API architecture
+  </div>
 </div>
 
 ### Database Technologies
 
-<div class="badge-container">
+<div class="badge-container" style="color: #ffffff !important; position: relative; z-index: 10;">
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
   <img src="https://img.shields.io/badge/Database-3NF-FFA500?style=for-the-badge" alt="3NF">
+  <div style="color: #ffffff !important; padding: 10px; background-color: #2d2d2d; border-radius: 5px; margin: 5px;">
+    <strong style="color: #ffffff !important;">MySQL 8.0+</strong> - Relational database management system<br>
+    <strong style="color: #ffffff !important;">3NF Normalized</strong> - Third Normal Form compliant design<br>
+    <strong style="color: #ffffff !important;">Foreign Keys</strong> - Referential integrity<br>
+    <strong style="color: #ffffff !important;">Indexes</strong> - Optimized query performance
+  </div>
+</div>
+
 </div>
 
 ---
