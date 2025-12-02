@@ -4,7 +4,7 @@
 ## Precision Care Through Smart Management
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 20px 0;">
-  <img src="Logo.png" alt="MEDLOCUS Logo" width="120" height="120" style="animation: pulse 2s ease-in-out infinite;">
+  <img src="Logo.svg" alt="MEDLOCUS Logo" width="120" height="120" style="animation: pulse 2s ease-in-out infinite;">
   <h1 style="margin: 0; font-size: 2.5em; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fadeIn 1s ease-in;">MEDLOCUS</h1>
 </div>
 
