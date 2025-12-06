@@ -1,14 +1,36 @@
-<div style="background-color: #1a1a1a; min-height: 100vh; padding: 20px; position: relative; z-index: 1;">
+<table>
+<tr>
+<td width="30%" align="center" valign="top">
+  
+<img src="Logo.svg" alt="MEDLOCUS Logo" width="150" height="150">
 
-<div align="center" style="position: relative; z-index: 10;">
+<br><br>
+
+<strong>MEDLOCUS</strong>
+
+<br>
+
+<small>TEAM MEDLOCUS</small>
+
+<br>
+</td>
+<td width="70%" align="left" valign="top">
 
 # 🏥 MEDLOCUS
+
 ## Precision Care Through Smart Management
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 20px 0;">
-  <img src="Logo.svg" alt="MEDLOCUS Logo" width="120" height="120" style="animation: pulse 2s ease-in-out infinite;">
-  <h1 style="margin: 0; font-size: 2.5em; color: #ffffff !important; text-shadow: 0 0 20px rgba(102, 126, 234, 0.5); animation: fadeIn 1s ease-in; position: relative; z-index: 10;">MEDLOCUS</h1>
-</div>
+**Revolutionizing Healthcare Through Intelligent Automation** 🚀
+
+Revolutionizing pharmacy inventory management through embedded systems and real-time data processing.
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+<br>
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-Proprietary-blue.svg" alt="License">
@@ -19,185 +41,17 @@
   <img src="https://img.shields.io/badge/Innovation-First-brightgreen.svg" alt="Innovation">
 </p>
 
-<p align="center" style="font-size: 1.2em; margin: 20px 0; color: #ffffff !important; position: relative; z-index: 10;">
-  <strong style="color: #ffffff !important;">Revolutionizing Healthcare Through Intelligent Automation</strong> 🚀
+<p align="center">
+  <a href="#-project-overview">📖 Documentation</a> •
+  <a href="#-features">🎯 Features</a> •
+  <a href="#-architecture">🏗️ Architecture</a> •
+  <a href="#-tech-stack">🛠️ Tech Stack</a> •
+  <a href="#-impact">📊 Impact</a>
 </p>
-
-<div align="center" style="margin: 30px 0; position: relative; z-index: 10;">
-  <a href="#-project-overview" style="margin: 0 10px; text-decoration: none; color: #4A90E2 !important; position: relative; z-index: 10;">📖 Documentation</a> •
-  <a href="#-features" style="margin: 0 10px; text-decoration: none; color: #4A90E2 !important; position: relative; z-index: 10;">🎯 Features</a> •
-  <a href="#-architecture" style="margin: 0 10px; text-decoration: none; color: #4A90E2 !important; position: relative; z-index: 10;">🏗️ Architecture</a> •
-  <a href="#-tech-stack" style="margin: 0 10px; text-decoration: none; color: #4A90E2 !important; position: relative; z-index: 10;">🛠️ Tech Stack</a> •
-  <a href="#-impact" style="margin: 0 10px; text-decoration: none; color: #4A90E2 !important; position: relative; z-index: 10;">📊 Impact</a>
-</div>
 
 </div>
 
 ---
-
-<style>
-body {
-  background-color: #1a1a1a !important;
-  color: #ffffff !important;
-}
-* {
-  color: #ffffff !important;
-}
-h1, h2, h3, h4, h5, h6 {
-  color: #ffffff !important;
-  position: relative;
-  z-index: 10;
-}
-p, li, td, th, span, div, a {
-  color: #ffffff !important;
-  position: relative;
-  z-index: 10;
-}
-code {
-  background-color: #2d2d2d !important;
-  color: #ffffff !important;
-  border: 1px solid #444;
-}
-pre {
-  background-color: #2d2d2d !important;
-  color: #ffffff !important;
-  border: 1px solid #444;
-}
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-.badge-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 20px 0;
-  position: relative;
-  z-index: 10;
-}
-.interactive-card {
-  border: 2px solid #444;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 15px 0;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  background-color: #2d2d2d;
-  color: #ffffff !important;
-  position: relative;
-  z-index: 10;
-}
-.interactive-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-  border-color: #667eea;
-}
-.interactive-card * {
-  color: #ffffff !important;
-  position: relative;
-  z-index: 11;
-}
-.collapsible {
-  background-color: #2d2d2d;
-  color: #ffffff !important;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: 1px solid #444;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  border-radius: 5px;
-  margin: 5px 0;
-  transition: background-color 0.3s;
-  position: relative;
-  z-index: 10;
-}
-.collapsible:hover {
-  background-color: #3d3d3d;
-  color: #ffffff !important;
-}
-.collapsible.active {
-  background-color: #667eea;
-  color: #ffffff !important;
-}
-.content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
-  background-color: #2d2d2d;
-  color: #ffffff !important;
-  border-radius: 0 0 5px 5px;
-  position: relative;
-  z-index: 10;
-}
-.content * {
-  color: #ffffff !important;
-}
-table {
-  background-color: #2d2d2d;
-  color: #ffffff !important;
-}
-table th, table td {
-  color: #ffffff !important;
-  border: 1px solid #444;
-}
-a {
-  color: #4A90E2 !important;
-  position: relative;
-  z-index: 10;
-}
-a:hover {
-  color: #6BA3E8 !important;
-}
-blockquote {
-  border-left: 4px solid #667eea;
-  background-color: #2d2d2d;
-  color: #ffffff !important;
-}
-h1, h2, h3, h4, h5, h6 {
-  color: #ffffff !important;
-  position: relative;
-  z-index: 10;
-}
-ul, ol {
-  color: #ffffff !important;
-}
-li {
-  color: #ffffff !important;
-  position: relative;
-  z-index: 10;
-}
-strong, b {
-  color: #ffffff !important;
-  position: relative;
-  z-index: 10;
-}
-em, i {
-  color: #ffffff !important;
-}
-hr {
-  border-color: #444;
-  background-color: #444;
-}
-details {
-  color: #ffffff !important;
-}
-summary {
-  color: #ffffff !important;
-  position: relative;
-  z-index: 10;
-}
-</style>
 
 ## 📋 Table of Contents
 
@@ -225,8 +79,6 @@ summary {
 
 ## 🎯 Project Overview
 
-<div class="interactive-card" style="animation: fadeIn 1s ease-in; color: #ffffff !important;">
-
 ### What is MEDLOCUS?
 
 **MEDLOCUS** is a comprehensive, full-stack web application designed to revolutionize pharmacy inventory management. It replaces traditional manual record-keeping with a modern, intelligent system that provides:
@@ -238,13 +90,10 @@ summary {
 - ✅ **Data Integrity**: Database constraints ensure accurate data
 - ✅ **User-Friendly Interface**: Modern, responsive design
 
-</div>
-
 ### Problem Statement
 
 <details>
-<summary class="collapsible">📌 View Problem Statement</summary>
-<div class="content">
+<summary>📌 View Problem Statement</summary>
 
 Traditional pharmacy inventory management faces critical challenges:
 
@@ -254,14 +103,12 @@ Traditional pharmacy inventory management faces critical challenges:
 - ❌ **No Expiry Tracking**: Manual tracking of expiry dates is prone to oversight
 - ❌ **Limited Search**: Finding specific medicines requires scanning through physical records
 
-</div>
 </details>
 
 ### Solution
 
 <details>
-<summary class="collapsible">💡 View Solution</summary>
-<div class="content">
+<summary>💡 View Solution</summary>
 
 MEDLOCUS addresses these challenges by providing:
 
@@ -272,18 +119,13 @@ MEDLOCUS addresses these challenges by providing:
 5. ✅ Intuitive design reducing learning curve
 6. ✅ Real-time updates across the system
 
-</div>
 </details>
 
 ---
 
 ## ✨ Features
 
-<div class="badge-container">
-
 ### 🎯 Core Features
-
-<div class="interactive-card">
 
 #### 1. Medicine Management
 - ➕ **Add Medicine**: Complete form with validation
@@ -293,37 +135,21 @@ MEDLOCUS addresses these challenges by providing:
 - 🔍 **Search Medicines**: Multi-criteria search
 - ⏰ **Expiry Tracking**: Automatic identification
 
-</div>
-
-<div class="interactive-card">
-
 #### 2. Supplier Management
 - 📋 **View Suppliers**: List all suppliers
 - ➕ **Add Supplier**: Add new suppliers
 - 🔗 **Supplier Linking**: Link medicines to suppliers
-
-</div>
-
-<div class="interactive-card">
 
 #### 3. Dashboard & Analytics
 - 📊 **Statistics**: Total medicines, quantity, inventory value
 - ⚠️ **Expiry Alerts**: Medicines expiring within 30 days
 - 🚀 **Quick Access**: Easy navigation
 
-</div>
-
-<div class="interactive-card">
-
 #### 4. Advanced Features
 - 🎨 **Color-coded Expiry**: Visual indicators
 - 📱 **Responsive Design**: Works on all devices
 - ✅ **Form Validation**: Client & server-side
 - 💾 **Auto-save Timestamps**: Automatic tracking
-
-</div>
-
-</div>
 
 ---
 
@@ -334,33 +160,33 @@ MEDLOCUS addresses these challenges by providing:
 ```mermaid
 graph TB
     subgraph "Presentation Layer"
-        A[HTML5/CSS3/JavaScript<br/>Frontend]
+        A["HTML5/CSS3/JavaScript<br/>Frontend"]
     end
     
     subgraph "Application Layer"
-        B[Python Flask<br/>REST API]
-        C[Business Logic<br/>Validation]
+        B["Python Flask<br/>REST API"]
+        C["Business Logic<br/>Validation"]
     end
     
     subgraph "Data Layer"
-        D[(MySQL Database<br/>medvault_db)]
-        E[Suppliers Table]
-        F[Medicines Table]
+        D[("MySQL Database<br/>medvault_db")]
+        E["Suppliers Table"]
+        F["Medicines Table"]
     end
     
-    A -->|HTTP/REST API| B
+    A -->|"HTTP/REST API"| B
     B --> C
-    C -->|SQL Queries| D
+    C -->|"SQL Queries"| D
     D --> E
     D --> F
-    E -->|Foreign Key| F
+    E -->|"Foreign Key"| F
     
-    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
-    style B fill:#764ba2,stroke:#333,stroke-width:2px,color:#fff
-    style C fill:#764ba2,stroke:#333,stroke-width:2px,color:#fff
-    style D fill:#f093fb,stroke:#333,stroke-width:2px,color:#fff
-    style E fill:#f093fb,stroke:#333,stroke-width:2px,color:#fff
-    style F fill:#f093fb,stroke:#333,stroke-width:2px,color:#fff
+    style A fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#FFFFFF
+    style B fill:#764ba2,stroke:#5A3A7A,stroke-width:3px,color:#FFFFFF
+    style C fill:#764ba2,stroke:#5A3A7A,stroke-width:3px,color:#FFFFFF
+    style D fill:#F093FB,stroke:#B06AB3,stroke-width:3px,color:#000000
+    style E fill:#F093FB,stroke:#B06AB3,stroke-width:3px,color:#000000
+    style F fill:#F093FB,stroke:#B06AB3,stroke-width:3px,color:#000000
 ```
 
 ### Component Interaction Flow
@@ -387,41 +213,43 @@ sequenceDiagram
 
 ```mermaid
 flowchart LR
-    Start([User Action]) --> Input{Input Type}
-    Input -->|Add Medicine| Add[Add Medicine Form]
-    Input -->|Search| Search[Search Form]
-    Input -->|Update| Update[Update Form]
-    Input -->|Delete| Delete[Delete Action]
+    Start(["User Action"]) --> Input{"Input Type"}
+    Input -->|"Add Medicine"| Add["Add Medicine Form"]
+    Input -->|"Search"| Search["Search Form"]
+    Input -->|"Update"| Update["Update Form"]
+    Input -->|"Delete"| Delete["Delete Action"]
     
-    Add --> Validate1[Validate Data]
-    Search --> Query[Query Database]
-    Update --> Validate2[Validate Data]
-    Delete --> Confirm[Confirm Deletion]
+    Add --> Validate1["Validate Data"]
+    Search --> Query["Query Database"]
+    Update --> Validate2["Validate Data"]
+    Delete --> Confirm["Confirm Deletion"]
     
-    Validate1 --> API1[POST /api/medicines]
-    Query --> API2[GET /api/medicines/search]
-    Validate2 --> API3[PUT /api/medicines/:id]
-    Confirm --> API4[DELETE /api/medicines/:id]
+    Validate1 --> API1["POST /api/medicines"]
+    Query --> API2["GET /api/medicines/search"]
+    Validate2 --> API3["PUT /api/medicines/:id"]
+    Confirm --> API4["DELETE /api/medicines/:id"]
     
-    API1 --> DB[(Database)]
+    API1 --> DB[("Database")]
     API2 --> DB
     API3 --> DB
     API4 --> DB
     
-    DB --> Response[Response]
-    Response --> UI[Update UI]
-    UI --> End([Complete])
+    DB --> Response["Response"]
+    Response --> UI["Update UI"]
+    UI --> End(["Complete"])
     
-    style Start fill:#90EE90
-    style End fill:#90EE90
-    style DB fill:#FFB6C1
+    style Start fill:#4ECDC4,stroke:#2E7D7A,stroke-width:3px,color:#000000
+    style End fill:#4ECDC4,stroke:#2E7D7A,stroke-width:3px,color:#000000
+    style DB fill:#FF6B6B,stroke:#CC5555,stroke-width:3px,color:#FFFFFF
+    style Add fill:#95E1D3,stroke:#6FA89A,stroke-width:2px,color:#000000
+    style Search fill:#95E1D3,stroke:#6FA89A,stroke-width:2px,color:#000000
+    style Update fill:#95E1D3,stroke:#6FA89A,stroke-width:2px,color:#000000
+    style Delete fill:#95E1D3,stroke:#6FA89A,stroke-width:2px,color:#000000
 ```
 
 ---
 
 ## 🛠️ Technology Stack
-
-<div style="color: #ffffff !important; position: relative; z-index: 10;">
 
 ### Technology Stack Diagram
 
@@ -451,45 +279,40 @@ mindmap
 
 ### Frontend Technologies
 
-<div class="badge-container" style="color: #ffffff !important; position: relative; z-index: 10;">
+<p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-  <div style="color: #ffffff !important; padding: 10px; background-color: #2d2d2d; border-radius: 5px; margin: 5px;">
-    <strong style="color: #ffffff !important;">HTML5</strong> - Semantic markup for structure<br>
-    <strong style="color: #ffffff !important;">CSS3</strong> - Modern styling with responsive design<br>
-    <strong style="color: #ffffff !important;">JavaScript ES6+</strong> - Dynamic functionality and API communication
-  </div>
-</div>
+</p>
+
+- **HTML5** - Semantic markup for structure
+- **CSS3** - Modern styling with responsive design
+- **JavaScript ES6+** - Dynamic functionality and API communication
 
 ### Backend Technologies
 
-<div class="badge-container" style="color: #ffffff !important; position: relative; z-index: 10;">
+<p align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
   <img src="https://img.shields.io/badge/REST_API-FF6B6B?style=for-the-badge&logo=rest&logoColor=white" alt="REST API">
-  <div style="color: #ffffff !important; padding: 10px; background-color: #2d2d2d; border-radius: 5px; margin: 5px;">
-    <strong style="color: #ffffff !important;">Python 3.8+</strong> - Programming language<br>
-    <strong style="color: #ffffff !important;">Flask 3.0.0</strong> - Lightweight web framework for REST API<br>
-    <strong style="color: #ffffff !important;">Flask-CORS</strong> - Cross-Origin Resource Sharing support<br>
-    <strong style="color: #ffffff !important;">RESTful API</strong> - API architecture
-  </div>
-</div>
+</p>
+
+- **Python 3.8+** - Programming language
+- **Flask 3.0.0** - Lightweight web framework for REST API
+- **Flask-CORS** - Cross-Origin Resource Sharing support
+- **RESTful API** - API architecture
 
 ### Database Technologies
 
-<div class="badge-container" style="color: #ffffff !important; position: relative; z-index: 10;">
+<p align="center">
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
   <img src="https://img.shields.io/badge/Database-3NF-FFA500?style=for-the-badge" alt="3NF">
-  <div style="color: #ffffff !important; padding: 10px; background-color: #2d2d2d; border-radius: 5px; margin: 5px;">
-    <strong style="color: #ffffff !important;">MySQL 8.0+</strong> - Relational database management system<br>
-    <strong style="color: #ffffff !important;">3NF Normalized</strong> - Third Normal Form compliant design<br>
-    <strong style="color: #ffffff !important;">Foreign Keys</strong> - Referential integrity<br>
-    <strong style="color: #ffffff !important;">Indexes</strong> - Optimized query performance
-  </div>
-</div>
+</p>
 
-</div>
+- **MySQL 8.0+** - Relational database management system
+- **3NF Normalized** - Third Normal Form compliant design
+- **Foreign Keys** - Referential integrity
+- **Indexes** - Optimized query performance
 
 ---
 
@@ -527,23 +350,22 @@ erDiagram
 
 ```mermaid
 graph LR
-    A[Raw Data] --> B[1NF<br/>Atomic Values]
-    B --> C[2NF<br/>No Partial Dependencies]
-    C --> D[3NF<br/>No Transitive Dependencies]
-    D --> E[Optimized Schema]
+    A["Raw Data"] --> B["1NF<br/>Atomic Values"]
+    B --> C["2NF<br/>No Partial Dependencies"]
+    C --> D["3NF<br/>No Transitive Dependencies"]
+    D --> E["Optimized Schema"]
     
-    style A fill:#FF6B6B
-    style B fill:#4ECDC4
-    style C fill:#45B7D1
-    style D fill:#96CEB4
-    style E fill:#FFEAA7
+    style A fill:#FF6B6B,stroke:#CC5555,stroke-width:3px,color:#FFFFFF
+    style B fill:#4ECDC4,stroke:#3A9D8F,stroke-width:3px,color:#000000
+    style C fill:#45B7D1,stroke:#368FA8,stroke-width:3px,color:#FFFFFF
+    style D fill:#96CEB4,stroke:#77A693,stroke-width:3px,color:#000000
+    style E fill:#FFEAA7,stroke:#CCBB85,stroke-width:3px,color:#000000
 ```
 
 ### Table Structure
 
 <details>
-<summary class="collapsible">📋 View Detailed Table Structure</summary>
-<div class="content">
+<summary>📋 View Detailed Table Structure</summary>
 
 #### Suppliers Table
 
@@ -582,7 +404,6 @@ graph LR
 - `idx_exp_date` on `exp_date`
 - `idx_supplier` on `supplier_id`
 
-</div>
 </details>
 
 ---
@@ -591,32 +412,36 @@ graph LR
 
 ### Prerequisites
 
-<div class="badge-container">
+<p align="center">
   <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/MySQL-8.0+-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
   <img src="https://img.shields.io/badge/pip-Latest-3776AB?style=flat-square" alt="pip">
-</div>
+</p>
 
 ### Installation Steps
 
 ```mermaid
 graph TD
-    A[Clone Repository] --> B[Setup Database]
-    B --> C[Install Dependencies]
-    C --> D[Configure Environment]
-    D --> E[Start Flask Server]
-    E --> F[Open Frontend]
-    F --> G[Start Using MEDLOCUS]
+    A["Clone Repository"] --> B["Setup Database"]
+    B --> C["Install Dependencies"]
+    C --> D["Configure Environment"]
+    D --> E["Start Flask Server"]
+    E --> F["Open Frontend"]
+    F --> G["Start Using MEDLOCUS"]
     
-    style A fill:#90EE90
-    style G fill:#90EE90
+    style A fill:#4ECDC4,stroke:#2E7D7A,stroke-width:3px,color:#000000
+    style G fill:#4ECDC4,stroke:#2E7D7A,stroke-width:3px,color:#000000
+    style B fill:#95E1D3,stroke:#6FA89A,stroke-width:2px,color:#000000
+    style C fill:#95E1D3,stroke:#6FA89A,stroke-width:2px,color:#000000
+    style D fill:#95E1D3,stroke:#6FA89A,stroke-width:2px,color:#000000
+    style E fill:#95E1D3,stroke:#6FA89A,stroke-width:2px,color:#000000
+    style F fill:#95E1D3,stroke:#6FA89A,stroke-width:2px,color:#000000
 ```
 
 ### Quick Setup Commands
 
 <details>
-<summary class="collapsible">⚡ View Setup Commands</summary>
-<div class="content">
+<summary>⚡ View Setup Commands</summary>
 
 ```bash
 # 1. Navigate to project directory
@@ -639,7 +464,6 @@ python -m http.server 8000
 
 Then open `http://localhost:8000` in your browser!
 
-</div>
 </details>
 
 ### Verification Checklist
@@ -679,8 +503,7 @@ stateDiagram-v2
 ### Feature Guide
 
 <details>
-<summary class="collapsible">📝 Adding a Medicine</summary>
-<div class="content">
+<summary>📝 Adding a Medicine</summary>
 
 1. Click **"➕ Add Medicine"** in the navigation menu
 2. Fill in all required fields:
@@ -694,12 +517,10 @@ stateDiagram-v2
 3. Click **"✅ Add Medicine"**
 4. Success message will appear, and you'll be redirected
 
-</div>
 </details>
 
 <details>
-<summary class="collapsible">🔍 Searching Medicines</summary>
-<div class="content">
+<summary>🔍 Searching Medicines</summary>
 
 1. Click **"🔍 Search Medicine"** in navigation
 2. Enter search term in the search box
@@ -709,12 +530,10 @@ stateDiagram-v2
    - Company name
    - Supplier name
 
-</div>
 </details>
 
 <details>
-<summary class="collapsible">⏰ Expiry Tracking</summary>
-<div class="content">
+<summary>⏰ Expiry Tracking</summary>
 
 - **Dashboard**: Shows medicines expiring within 30 days
 - **View Medicines**: Color-coded expiry status
@@ -722,7 +541,6 @@ stateDiagram-v2
   - 🟡 Yellow background = Expiring within 30 days
   - ✅ Green = Valid (more than 30 days remaining)
 
-</div>
 </details>
 
 ---
@@ -733,28 +551,28 @@ stateDiagram-v2
 
 ```mermaid
 graph LR
-    A[Client] --> B[Flask API]
-    B --> C[Medicine Endpoints]
-    B --> D[Supplier Endpoints]
-    B --> E[Health Check]
+    A["Client"] --> B["Flask API"]
+    B --> C["Medicine Endpoints"]
+    B --> D["Supplier Endpoints"]
+    B --> E["Health Check"]
     
-    C --> C1[GET /api/medicines]
-    C --> C2[POST /api/medicines]
-    C --> C3[PUT /api/medicines/:id]
-    C --> C4[DELETE /api/medicines/:id]
-    C --> C5[GET /api/medicines/search]
-    C --> C6[GET /api/medicines/expiring]
+    C --> C1["GET /api/medicines"]
+    C --> C2["POST /api/medicines"]
+    C --> C3["PUT /api/medicines/:id"]
+    C --> C4["DELETE /api/medicines/:id"]
+    C --> C5["GET /api/medicines/search"]
+    C --> C6["GET /api/medicines/expiring"]
     
-    D --> D1[GET /api/suppliers]
-    D --> D2[POST /api/suppliers]
+    D --> D1["GET /api/suppliers"]
+    D --> D2["POST /api/suppliers"]
     
-    E --> E1[GET /api/health]
+    E --> E1["GET /api/health"]
     
-    style A fill:#667eea
-    style B fill:#764ba2
-    style C fill:#f093fb
-    style D fill:#f093fb
-    style E fill:#4facfe
+    style A fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#FFFFFF
+    style B fill:#764ba2,stroke:#5A3A7A,stroke-width:3px,color:#FFFFFF
+    style C fill:#F093FB,stroke:#B06AB3,stroke-width:3px,color:#000000
+    style D fill:#F093FB,stroke:#B06AB3,stroke-width:3px,color:#000000
+    style E fill:#4FACFE,stroke:#3E8ACC,stroke-width:3px,color:#FFFFFF
 ```
 
 ### Base URL
@@ -765,8 +583,7 @@ http://localhost:5000/api
 ### Medicine Endpoints
 
 <details>
-<summary class="collapsible">📋 GET /api/medicines - Get All Medicines</summary>
-<div class="content">
+<summary>📋 GET /api/medicines - Get All Medicines</summary>
 
 **Request:**
 ```http
@@ -793,12 +610,10 @@ GET /api/medicines
 ]
 ```
 
-</div>
 </details>
 
 <details>
-<summary class="collapsible">➕ POST /api/medicines - Add New Medicine</summary>
-<div class="content">
+<summary>➕ POST /api/medicines - Add New Medicine</summary>
 
 **Request:**
 ```http
@@ -827,12 +642,10 @@ Content-Type: application/json
 }
 ```
 
-</div>
 </details>
 
 <details>
-<summary class="collapsible">🔍 GET /api/medicines/search - Search Medicines</summary>
-<div class="content">
+<summary>🔍 GET /api/medicines/search - Search Medicines</summary>
 
 **Request:**
 ```http
@@ -841,7 +654,6 @@ GET /api/medicines/search?q=Paracetamol
 
 **Response:** Array of matching medicines
 
-</div>
 </details>
 
 For complete API documentation, see the [API Documentation](#-api-documentation) section in the original README.
@@ -876,28 +688,13 @@ pie title Test Coverage
 
 ### Key Metrics
 
-<div class="badge-container">
-  <div class="interactive-card" style="text-align: center;">
-    <h3>30+</h3>
-    <p>Total Files</p>
-  </div>
-  <div class="interactive-card" style="text-align: center;">
-    <h3>3000+</h3>
-    <p>Lines of Code</p>
-  </div>
-  <div class="interactive-card" style="text-align: center;">
-    <h3>9</h3>
-    <p>API Endpoints</p>
-  </div>
-  <div class="interactive-card" style="text-align: center;">
-    <h3>23</h3>
-    <p>Test Cases</p>
-  </div>
-  <div class="interactive-card" style="text-align: center;">
-    <h3>100%</h3>
-    <p>Test Pass Rate</p>
-  </div>
-</div>
+| Metric | Value |
+|--------|-------|
+| **Total Files** | 30+ |
+| **Lines of Code** | 3000+ |
+| **API Endpoints** | 9 |
+| **Test Cases** | 23 |
+| **Test Pass Rate** | 100% |
 
 ### Benefits
 
@@ -915,22 +712,22 @@ pie title Test Coverage
 
 ```mermaid
 graph TD
-    A[Security Measures] --> B[SQL Injection Prevention]
-    A --> C[XSS Prevention]
-    A --> D[Input Validation]
-    A --> E[CORS Configuration]
+    A["Security Measures"] --> B["SQL Injection Prevention"]
+    A --> C["XSS Prevention"]
+    A --> D["Input Validation"]
+    A --> E["CORS Configuration"]
     
-    B --> B1[Parameterized Queries]
-    C --> C1[HTML Escaping]
-    D --> D1[Client-side Validation]
-    D --> D2[Server-side Validation]
-    E --> E1[Flask-CORS]
+    B --> B1["Parameterized Queries"]
+    C --> C1["HTML Escaping"]
+    D --> D1["Client-side Validation"]
+    D --> D2["Server-side Validation"]
+    E --> E1["Flask-CORS"]
     
-    style A fill:#FF6B6B
-    style B fill:#4ECDC4
-    style C fill:#45B7D1
-    style D fill:#96CEB4
-    style E fill:#FFEAA7
+    style A fill:#FF6B6B,stroke:#CC5555,stroke-width:3px,color:#FFFFFF
+    style B fill:#4ECDC4,stroke:#3A9D8F,stroke-width:3px,color:#000000
+    style C fill:#45B7D1,stroke:#368FA8,stroke-width:3px,color:#FFFFFF
+    style D fill:#96CEB4,stroke:#77A693,stroke-width:3px,color:#000000
+    style E fill:#FFEAA7,stroke:#CCBB85,stroke-width:3px,color:#000000
 ```
 
 ### Implemented Security
@@ -1059,23 +856,3 @@ For issues, questions, or contributions:
 [⬆ Back to Top](#-medlocus)
 
 </div>
-
-</div>
-
-<script>
-// Interactive collapsible functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const collapsibles = document.querySelectorAll('.collapsible');
-    collapsibles.forEach(coll => {
-        coll.addEventListener('click', function() {
-            this.classList.toggle('active');
-            const content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
-    });
-});
-</script>
