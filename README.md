@@ -254,27 +254,58 @@ flowchart LR
 ### Technology Stack Diagram
 
 ```mermaid
-mindmap
-  root((MEDLOCUS<br/>Tech Stack))
-    Frontend
-      HTML5
-      CSS3
-      JavaScript ES6+
-      Responsive Design
-    Backend
-      Python 3.8+
-      Flask 3.0.0
-      Flask-CORS
-      RESTful API
-    Database
-      MySQL 8.0+
-      3NF Normalized
-      Foreign Keys
-      Indexes
-    Tools
-      mysql-connector-python
-      python-dotenv
-      Git
+graph TB
+    Root["MEDLOCUS<br/>Tech Stack"]
+    
+    Frontend["Frontend"]
+    Backend["Backend"]
+    Database["Database"]
+    Tools["Tools"]
+    
+    Root --> Frontend
+    Root --> Backend
+    Root --> Database
+    Root --> Tools
+    
+    Frontend --> F1["HTML5"]
+    Frontend --> F2["CSS3"]
+    Frontend --> F3["JavaScript ES6+"]
+    Frontend --> F4["Responsive Design"]
+    
+    Backend --> B1["Python 3.8+"]
+    Backend --> B2["Flask 3.0.0"]
+    Backend --> B3["Flask-CORS"]
+    Backend --> B4["RESTful API"]
+    
+    Database --> D1["MySQL 8.0+"]
+    Database --> D2["3NF Normalized"]
+    Database --> D3["Foreign Keys"]
+    Database --> D4["Indexes"]
+    
+    Tools --> T1["mysql-connector-python"]
+    Tools --> T2["python-dotenv"]
+    Tools --> T3["Git"]
+    
+    style Root fill:#667eea,stroke:#4A5FA8,stroke-width:4px,color:#FFFFFF
+    style Frontend fill:#E34F26,stroke:#B83D1F,stroke-width:3px,color:#FFFFFF
+    style Backend fill:#764ba2,stroke:#5A3A7A,stroke-width:3px,color:#FFFFFF
+    style Database fill:#4479A1,stroke:#2E5C7A,stroke-width:3px,color:#FFFFFF
+    style Tools fill:#8B4513,stroke:#6B3410,stroke-width:3px,color:#FFFFFF
+    style F1 fill:#FF6B6B,stroke:#CC5555,stroke-width:2px,color:#FFFFFF
+    style F2 fill:#4ECDC4,stroke:#3A9D8F,stroke-width:2px,color:#000000
+    style F3 fill:#FFE66D,stroke:#CCB855,stroke-width:2px,color:#000000
+    style F4 fill:#95E1D3,stroke:#6FA89A,stroke-width:2px,color:#000000
+    style B1 fill:#3776AB,stroke:#2A5A82,stroke-width:2px,color:#FFFFFF
+    style B2 fill:#000000,stroke:#000000,stroke-width:2px,color:#FFFFFF
+    style B3 fill:#FF6B6B,stroke:#CC5555,stroke-width:2px,color:#FFFFFF
+    style B4 fill:#F093FB,stroke:#B06AB3,stroke-width:2px,color:#000000
+    style D1 fill:#4479A1,stroke:#2E5C7A,stroke-width:2px,color:#FFFFFF
+    style D2 fill:#4ECDC4,stroke:#3A9D8F,stroke-width:2px,color:#000000
+    style D3 fill:#45B7D1,stroke:#368FA8,stroke-width:2px,color:#FFFFFF
+    style D4 fill:#96CEB4,stroke:#77A693,stroke-width:2px,color:#000000
+    style T1 fill:#8B4513,stroke:#6B3410,stroke-width:2px,color:#FFFFFF
+    style T2 fill:#A0522D,stroke:#7A3E20,stroke-width:2px,color:#FFFFFF
+    style T3 fill:#F05032,stroke:#C03E26,stroke-width:2px,color:#FFFFFF
 ```
 
 ### Frontend Technologies
