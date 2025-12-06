@@ -255,42 +255,38 @@ flowchart LR
 
 ```mermaid
 graph TB
-    Root["MEDLOCUS<br/>Tech Stack"]
+    Root["MEDLOCUS Tech Stack"]
     
-    Frontend["Frontend"]
-    Backend["Backend"]
-    Database["Database"]
-    Tools["Tools"]
+    subgraph FE["Frontend"]
+        direction LR
+        F1["HTML5"] --- F2["CSS3"] --- F3["JS ES6+"] --- F4["Responsive"]
+    end
     
-    Root --> Frontend
-    Root --> Backend
-    Root --> Database
-    Root --> Tools
+    subgraph BE["Backend"]
+        direction LR
+        B1["Python 3.8+"] --- B2["Flask 3.0"] --- B3["Flask-CORS"] --- B4["REST API"]
+    end
     
-    Frontend --> F1["HTML5"]
-    Frontend --> F2["CSS3"]
-    Frontend --> F3["JavaScript ES6+"]
-    Frontend --> F4["Responsive Design"]
+    subgraph DB["Database"]
+        direction LR
+        D1["MySQL 8.0+"] --- D2["3NF"] --- D3["Foreign Keys"] --- D4["Indexes"]
+    end
     
-    Backend --> B1["Python 3.8+"]
-    Backend --> B2["Flask 3.0.0"]
-    Backend --> B3["Flask-CORS"]
-    Backend --> B4["RESTful API"]
+    subgraph TO["Tools"]
+        direction LR
+        T1["mysql-connector"] --- T2["python-dotenv"] --- T3["Git"]
+    end
     
-    Database --> D1["MySQL 8.0+"]
-    Database --> D2["3NF Normalized"]
-    Database --> D3["Foreign Keys"]
-    Database --> D4["Indexes"]
+    Root --> FE
+    Root --> BE
+    Root --> DB
+    Root --> TO
     
-    Tools --> T1["mysql-connector-python"]
-    Tools --> T2["python-dotenv"]
-    Tools --> T3["Git"]
-    
-    style Root fill:#667eea,stroke:#4A5FA8,stroke-width:4px,color:#FFFFFF
-    style Frontend fill:#E34F26,stroke:#B83D1F,stroke-width:3px,color:#FFFFFF
-    style Backend fill:#764ba2,stroke:#5A3A7A,stroke-width:3px,color:#FFFFFF
-    style Database fill:#4479A1,stroke:#2E5C7A,stroke-width:3px,color:#FFFFFF
-    style Tools fill:#8B4513,stroke:#6B3410,stroke-width:3px,color:#FFFFFF
+    style Root fill:#667eea,stroke:#4A5FA8,stroke-width:3px,color:#FFFFFF
+    style FE fill:#E34F26,stroke:#B83D1F,stroke-width:2px,color:#FFFFFF
+    style BE fill:#764ba2,stroke:#5A3A7A,stroke-width:2px,color:#FFFFFF
+    style DB fill:#4479A1,stroke:#2E5C7A,stroke-width:2px,color:#FFFFFF
+    style TO fill:#8B4513,stroke:#6B3410,stroke-width:2px,color:#FFFFFF
     style F1 fill:#FF6B6B,stroke:#CC5555,stroke-width:2px,color:#FFFFFF
     style F2 fill:#4ECDC4,stroke:#3A9D8F,stroke-width:2px,color:#000000
     style F3 fill:#FFE66D,stroke:#CCB855,stroke-width:2px,color:#000000
